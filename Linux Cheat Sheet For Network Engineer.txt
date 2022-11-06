@@ -1,0 +1,121 @@
+Linux Cheat Sheet for Network Engineer:
+
+- ssh -l username remote_server/devices 	= Untuk SSH ke perangkat menggunakan user credential
+- cat ~/.ssh/known_hosts			= lokasi fingerprint yang disave oleh linux
+- vim /etc/ssh/sshd_config			= setting SSH agar lebih aman
+- sudo yum install [nama_aplikasi] -y		= install aplikasi secara online, -y utk skip prompt pertanyaan
+
+Basic Commands:
+
+- WHO
+- UPTIME
+- DATE
+- USERADD
+- PASSWD
+- CHSH
+- DATE
+- LAST
+- FIND
+- UNAME -A
+- CAT /ETC/RELEASE*
+- TOP
+- PS-AUX
+- PWD
+- GREP
+- CAT
+- TAC
+- MORE
+- SORT -U
+- HISTORY
+- UNIQ
+
+Working With files:
+- CUT
+- FILE
+- TOUCH
+- VIM /VI
+- CD
+- MKDIR
+- RMDIR
+- RM
+- CP
+- MV
+- TAR
+- HARDLINK
+- SYMBOL LINK
+- SED
+- AWK 
+
+INPUT DAN OUTPUT:
+cp file1.txt > file2.txt = copy data dan akan menghapus text sebelumnya yg ada di file1.txt
+cp file1.txt >> file2.txt = menambahkan text yg ada di file1 ke file2 tanpa menghapus text yg sebelumnya sudah ada di file2.txt
+
+REGEX:
+
+^		= bagian awal dari text = misal ^abc maka hasil menjadi abc/abcdef,abc123
+$		= bagian akhir dari text = misal abc$ maka hasil menjadi abc,blahabc, 456abc
+.		= semua karakter kecuali line yang baru = misal a.c maka hasil menjadi abc,aac,a2c
+|		= alteration = misal 1 | 8 maka hasil menjadi 1,8
+{...}		= jumlah huruf yang akan diambil = misal ab{2} maka hasil menjadi abbc
+[...]		= minimal n and maksimal m = misal a[bB]c maka hasil menjadi abc,aBc
+(...)		= group dari karakter = misal (123){3} maka hasil menjadi 123123123
+*		= nol atau lebih atau sebanyak-banyaknya dari karakter = misal ab*c make hasil menjadi ac,abc,abbbbbc
++		= 1 atau lebih atau sebanyak-banyaknya dari karakter = misal ab+c maka hasil menjadi abc,abbbbc
+?		= 0 atau 1 dari karakter = misal ab?c maka hasil menjadi ac, abc
+
+MANAGE PERMISSION:
+chgroup
+chmod
+chown 
+
+NETWORK COMMANDS:
+
+ifconfig / ip addr
+ip route
+ip add
+dns IP
+NTP IP
+hostname
+ping
+traceroute
+tracepath
+dig
+nslookup
+NMAP
+netstat
+arp
+iwconfig
+curl
+wget
+mtr
+whois
+ifplugstatus
+iftop
+tcpdump
+
+Cronjob:
+
+crontab -e = untuk mengedit file cron apabila tidak ada existing file cron
+crontab -u = untuk mengedit existing file cron
+crontab -l = menampilkan isi file cron
+crontab -r = menghapus sebual file cron
+
+Fromat File Cron:
+Minute - perintah dalam menit ( 0 - 59 menit)
+Hour    - perintah dalam jam ( 0 - 23 jam)
+Day      - perintah dalam hari ( 1 - 31 hari)
+Month  - perintah dalam bulan ( 1 - 12 menit)
+Weekday - perintah dalam hari ( 0 - 7)
+
+BASH SCRIPTING
+
+Output
+Input
+Function
+Selection
+For Loop
+While Loop
+And Logic
+Logic
+
+
