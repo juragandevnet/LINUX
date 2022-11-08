@@ -28,21 +28,27 @@ Basic Commands:
 - HISTORY		= menampilkan aktifitas yang sudah dilakukan
 
 Working With files:
-- CUT
-- FILE
-- TOUCH
-- VIM /VI
-- CD
-- MKDIR
-- RMDIR
-- RM
-- CP
-- MV
-- TAR
-- HARDLINK
-- SYMBOL LINK
-- SED
-- AWK 
+- CUT 		= Memotong bagian2 tertantu baris dari file yang ditentukan = cut file.txt -f 1,3 / -4
+- FILE		= Mengetahui tipe file = file nama file
+- TOUCH		= Membuat file kosong
+- VIM /VI	= Menulis file
+- CD		= Membuka file
+- MKDIR		= Membuat Folder/Directory baru
+- RMDIR		= Menghapus Folder/Directory kosong
+- RM		= Menghapus file atau Folder/Directory yang ada isinya
+- CP		= Mengkopi file / folder / directory 
+- MV		= Rename File/directory atau memindahkan file/directory
+- TAR		= Archive file dan extract file = tar -czvf archive_name [file atau directory yang akan di archive]
+  - C		= Membuat Archive
+  - Z		= Archvie menggunakan metode zip
+  - V		= Menampilkan prosess archive
+  - F		= Membuat archive dengan nama file yang diberikan
+  - X		= Mengekstrak archive
+- SYMBOL LINK	= Berfungsi untuk membuat soft-link yang mengacu ke pada folder asli = ln -s
+  -verify	= ls -il /etc/hosts Desktop newDesktop -> jika black maksud'y folder asli'y dihapus
+  -Hapus link	= rm atau unlink, bedanya rm remove system call se
+- SED		=
+- AWK 		=
 
 INPUT DAN OUTPUT:
 cp file1.txt > file2.txt = copy data dan akan menghapus text sebelumnya yg ada di file1.txt
