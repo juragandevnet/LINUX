@@ -7,27 +7,25 @@ Linux Cheat Sheet for Network Engineer:
 
 Basic Commands:
 
-- WHO
-- UPTIME
-- DATE
-- USERADD
-- PASSWD
-- CHSH
-- DATE
-- LAST
-- FIND
-- UNAME -A
-- CAT /ETC/RELEASE*
-- TOP
-- PS-AUX
-- PWD
-- GREP
-- CAT
-- TAC
-- MORE
-- SORT -U
-- HISTORY
-- UNIQ
+- WHO			= menampilkan siapa yang login ke servers
+- UPTIME		= menampilkan berapa lama servers sudah berjalan
+- DATE			= menampilkan tanggal di server
+- USERADD		= menambahkan user baru, harus menggunakan root
+- PASSWD		= menambahkan password untuk user baru
+- CHSH			= merubah lokasi shell (usr/bin/sh)
+- LAST			= menampilkan last activity atau bagian akhir dari text
+- FIND			= mencari file atau folder (find ./folder -name switch.logs
+- UNAME -A		= menampilkan versi linux
+- CAT /ETC/centos-RELEASE*	= menampilkan versi centos version
+- TOP			= menampilkan CPU dan memory
+- PS-AUX		= menampilkan proses untuk aplikasi yang sedang berjalan
+- PWD			= menampilkan informasi, posisi user ada di folder mana
+- GREP			= mencari sebuah pattern dari text
+- CAT			= membaca file
+- TAC			= membaca file dari bawah ke atas
+- MORE			= membaca file dengan sistem paging ( per page)
+- SORT -U		= mengurutkan isi file
+- HISTORY		= menampilkan aktifitas yang sudah dilakukan
 
 Working With files:
 - CUT
