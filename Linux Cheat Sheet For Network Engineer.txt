@@ -13,7 +13,7 @@ Basic Commands:
 - USERADD		= menambahkan user baru, harus menggunakan root
 - PASSWD		= menambahkan password untuk user baru
 - CHSH			= merubah lokasi shell (usr/bin/sh)
-- LAST			= menampilkan last activity atau bagian akhir dari text
+- LAST			= menampilkan last login di server
 - FIND			= mencari file atau folder (find ./folder -name switch.logs
 - UNAME -A		= menampilkan versi linux
 - CAT /ETC/centos-RELEASE*	= menampilkan versi centos version
