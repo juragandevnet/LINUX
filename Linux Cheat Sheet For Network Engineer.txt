@@ -47,25 +47,52 @@ Working With files:
 - SYMBOL LINK	= Berfungsi untuk membuat soft-link yang mengacu ke pada folder asli = ln -s
   -verify	= ls -il /etc/hosts Desktop newDesktop -> jika black maksud'y folder asli'y dihapus
   -Hapus link	= rm atau unlink, bedanya rm remove system call se
-- SED		=
-- AWK 		=
+- SED		= Stream Editor, memanipulasi input yang berupa stream. sed akan mengecek baris demi baris, setelah ditemukan makan sed akan lanjut ke baris berikutnya.
+	- mencari file = sed -n '1,3p' test.txt
+	- mengganti text = sed 's/old_text/New_text/g'  test.txt
+	- menghapus baris = sed '1,3d' test.txt
+	- menghapus text = sed '/Router/d' test.txt
+	- menggunakan regex = sed 'neighbor*/Switch/g' test.txt
+- AWK 		= Lebih canggih dari Sed karena dapat menggunakan konstruksi pemrogramman seperti if/else, while, do/while dan dll.
+	- awk '{print $1}' awk.txt	= menampilkan kolom pertama
+	- awk '{print $1 " " $3}' awk.txt = menampilkan kolom pertama dan ketiga
+	- awk '/ROUTER/ {print}' awk.txt = menampilkan baris yang ada kata bgp'y
+	- awk '{ if ($1 ~ /bgp/) print}' awk.txt = mencetak jika kolom pertama berisi kata bgp
+
+VIM TOOLS:
+
+dd						= Menghapus 1 baris
+b						= Melompat ke awal kata
+:%s/old_text/new_text/g	= Mengganti text lama dengan text baru
+gg						= Menuju ke line pertama dari file
+u						= Ini untuk undo, misal kalian salah ketik
+capital G				= Menuju ke line terakhir dari file
+/						= Mencari text
+Ctrl + r				= Untuk mengembalikan perubahan terakhir
+Esc + :q! / :wq!		= Untuk save file
 
 INPUT DAN OUTPUT:
-cp file1.txt > file2.txt = copy data dan akan menghapus text sebelumnya yg ada di file1.txt
-cp file1.txt >> file2.txt = menambahkan text yg ada di file1 ke file2 tanpa menghapus text yg sebelumnya sudah ada di file2.txt
+STDIN 	= cp file1.txt > file2.txt = copy data dan akan menghapus text sebelumnya yg ada di file1.txt
+STDIN	= cp file1.txt >> file2.txt = menambahkan text yg ada di file1 ke file2 tanpa menghapus text yg sebelumnya sudah ada di file2.txt
+STDOUT	= menampilkan value dari input yang dimasukkan dan hasilnya disimpan di stdout stream
+STDERR	= menampilkan error dari command yang dijalankan dan hasilnya disimpan di data stream
+
+#!/bin/bash
+hostname="IDJKTWR01"
+echo $hostname
 
 REGEX:
 
-^		= bagian awal dari text = misal ^abc maka hasil menjadi abc/abcdef,abc123
-$		= bagian akhir dari text = misal abc$ maka hasil menjadi abc,blahabc, 456abc
-.		= semua karakter kecuali line yang baru = misal a.c maka hasil menjadi abc,aac,a2c
-|		= alteration = misal 1 | 8 maka hasil menjadi 1,8
+^			= bagian awal dari text = misal ^abc maka hasil menjadi abc/abcdef,abc123
+$			= bagian akhir dari text = misal abc$ maka hasil menjadi abc,blahabc, 456abc
+.			= semua karakter kecuali line yang baru = misal a.c maka hasil menjadi abc,aac,a2c
+|			= alteration = misal 1 | 8 maka hasil menjadi 1,8
 {...}		= jumlah huruf yang akan diambil = misal ab{2} maka hasil menjadi abbc
 [...]		= minimal n and maksimal m = misal a[bB]c maka hasil menjadi abc,aBc
 (...)		= group dari karakter = misal (123){3} maka hasil menjadi 123123123
-*		= nol atau lebih atau sebanyak-banyaknya dari karakter = misal ab*c make hasil menjadi ac,abc,abbbbbc
-+		= 1 atau lebih atau sebanyak-banyaknya dari karakter = misal ab+c maka hasil menjadi abc,abbbbc
-?		= 0 atau 1 dari karakter = misal ab?c maka hasil menjadi ac, abc
+*			= nol atau lebih atau sebanyak-banyaknya dari karakter = misal ab*c make hasil menjadi ac,abc,abbbbbc
++			= 1 atau lebih atau sebanyak-banyaknya dari karakter = misal ab+c maka hasil menjadi abc,abbbbc
+?			= 0 atau 1 dari karakter = misal ab?c maka hasil menjadi ac, abc
 
 MANAGE PERMISSION:
 chgroup
