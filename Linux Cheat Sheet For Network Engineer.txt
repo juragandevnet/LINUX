@@ -174,17 +174,25 @@ tcpdump						= packet capture di interface
 
 Cronjob:
 
-crontab -e = untuk mengedit file cron apabila tidak ada existing file cron
-crontab -u = untuk mengedit existing file cron
-crontab -l = menampilkan isi file cron
-crontab -r = menghapus sebual file cron
+sudo yum install crontabs -y 	= install crontabs di centos8
+crontab -e 						= untuk mengedit file cron apabila tidak ada existing file cron
+crontab -l 						= menampilkan isi file cron
+crontab -r 						= menghapus sebual file cron
 
-Fromat File Cron:
+sudo cat /var/log/cron
+
+systemctl start crond.service
+systemctl enable crond.service
+systemctl status crond.service
+
+Format File Cron:
 Minute - perintah dalam menit ( 0 - 59 menit)
 Hour    - perintah dalam jam ( 0 - 23 jam)
 Day      - perintah dalam hari ( 1 - 31 hari)
 Month  - perintah dalam bulan ( 1 - 12 menit)
 Weekday - perintah dalam hari ( 0 - 7)
+
+* * * * * /home/juragandevnet/Desktop/script.bash >> /home/juragandevnet/Desktop/cronjob.logs
 
 BASH SCRIPTING
 
