@@ -95,34 +95,82 @@ $			= bagian akhir dari text = misal abc$ maka hasil menjadi abc,blahabc, 456abc
 ?			= 0 atau 1 dari karakter = misal ab?c maka hasil menjadi ac, abc
 
 MANAGE PERMISSION:
-chgroup
-chmod
-chown 
+## CHGRP ###
+sudo groupadd juragandevnet2
+getent group | grep mygroup
+sudo chgrp juragandevnet2 script.bash
+
+Kalau tadi group sekarang set owner/user dari file tersebut
+
+### CHOWN ###
+
+sudo useradd juragandevnet2 -g juragandevnet2
+sudo passwd juragandevnet2
+sudo chown juragandevnet2 script.bash
+
+### CHMOD ###
+Format'y adalah User, Group, Other
+chmod 755 script.bash
+https://chmod-calculator.com/
 
 NETWORK COMMANDS:
 
-ifconfig / ip addr
-ip route
-ip add
-dns IP
-NTP IP
-hostname
-ping
-traceroute
-tracepath
-dig
-nslookup
-NMAP
-netstat
-arp
-iwconfig
-curl
-wget
-mtr
-whois
-ifplugstatus
-iftop
-tcpdump
+ifconfig / ip addr			= Mengecek informasi dari IP address/subnet mask/mac-address interface dll
+ip route show				= Mengecek ip route, menambahkan dan menghapus route, digunakan untuk backup data interface.
+ - ip route add x/x via y	= X adalah subnet dan subnet mask yang ingin ditambahkan, Y adalah gatewaynya
+ - ip route del x/x via y	= X adalah subnet dan subnet mask yang ingin dihapus, Y adalah gatewaynya
+ip addr add X dev Y			= menambah IP secondary, X adalah ip address yang baru, Y adalah nama interfacenya
+ip addr del X dev Y			= menghapus IP secondary, X adalah ip address yang baru, Y adalah nama interface
+dns IP						= cara tahu DNS di linux cat /etc/resolv.conf, vim /etc/resolv.conf
+NTP IP						= check tanggal dan waktu
+ - sudo dnf install chrony  = install NTP chronyc
+ - timedatectl set-timezone Asia/Singapore
+ - vim /etc/chrony.conf 
+   - server 0.sg.pool.ntp.org
+   - server 1.sg.pool.ntp.org
+   - server 2.sg.pool.ntp.org
+   - server 3.sg.pool.ntp.org
+ - systemctl start chronyd
+ - systemctl enable chronyd
+ - systemctl status chronyd
+ - chronyc sources
+ 
+hostname					= melihat nama hostname anda
+ping						= mengecek konektivitas server anda ke perangkat lain
+traceroute					= mapping network path dari source ke destination 
+ - maximum hop number dan packet size in bytes
+ - IP address and resolved domain name
+ - traceroute menawarkan banyak options dibandingkan tracepath, seperti mw pakai ICMP atau TCP protocols.
+tracepath					= menelusuri network path dari source ke destination
+ - by default memberikan informasi maksimum MTU yang bisa dikirim
+ - resolved domain name
+
+dig							= sama seperti nslookup tetapi lebih detail informasinya
+nslookup					= lookup server-name ke ip address
+NMAP (Network Mapper)		= Digunakan sebenernya untuk security audit, untuk scan IP dan port 
+ - yum install nmap -y		= install nmap di CentOS 8
+ - nmap --version			= Check versi Nmap
+ - nmap [IP_target]			= Scanning IP Address Target
+netstat						= melihat port apa yang sedang listening diserver anda
+arp							= melihat arp atau mac-address dari ip address lain
+curl						= transfer data ke atau dari server (upload/download) atau untuk mengecek HTTP headers dari website.
+							= Support untuk HTTP/HTTPS, FTP, SFTP, SCP, IMAP, LDAP, SMB, TELNET, POP3, GOPHER dan lain lain.
+ - curl -I https://www.centos.org/
+ - curl -o linux-5.5.3.tar.xz https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.5.3.tar.xz
+wget						= sama seperti CURL tetapi hanya support HTTP/HTTPS, FTP dan FTPS. wget tidak support upload untuk FTP
+ - wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.5.3.tar.xz
+mtr							= traceroute lebih detail lagi dibandingkan traceroute dan tracepath
+ - yum install mtr -y
+ - mtr [IP_target]
+#whois						= mengecek domain name dari suatu server
+ - yum install whois -y		
+ - whois CNN.com			
+matiin DNS server dulu doy
+iftop						= mengecek bandwidth yang dikonsumsi oleh interfaces 
+ - yum install iftop -y
+ - iftop -i ens192
+tcpdump						= packet capture di interface
+ - tcpdump -i ens192
 
 Cronjob:
 
