@@ -177,7 +177,7 @@ Cronjob:
 sudo yum install crontabs -y 	= install crontabs di centos8
 crontab -e 						= untuk mengedit file cron apabila tidak ada existing file cron
 crontab -l 						= menampilkan isi file cron
-crontab -r 						= menghapus sebual file cron
+crontab -r 						= menghapus sebuah file cron
 
 sudo cat /var/log/cron
 
@@ -195,14 +195,72 @@ Weekday - perintah dalam hari ( 0 - 7)
 * * * * * /home/juragandevnet/Desktop/script.bash >> /home/juragandevnet/Desktop/cronjob.logs
 
 BASH SCRIPTING
+### DEFINE BASH SHELL ###
+#!/bin/bash
 
-Output
-Input
-Function
-Selection
-For Loop
-While Loop
-And Logic
-Logic
+### Variable ###
+$hostname = "IDJKTWR01"
+
+### Output ###		
+echo "Testing Menjalankan Print Out di Bash Scripting"
+echo $hostname
+
+### Input ###
+read -p 'Siapa Nama Anda: ' username
+echo "Selamat datang di bash scripting" $username
+
+read -p 'Sebutkan 3 HP Favorit Anda: ' HP1 HP2 HP3
+
+echo handphone pertama: $HP1
+echo handphone kedua: $HP2
+echo handphone ketiga: $HP3
+
+### Function 1###
+function_name() {
+ echo Function Berjalan
+}
+
+function_name
+
+### Function 2###
+function_name(){
+ echo Ini adalah function untuk OSPF number $1 dan $2
+}
+
+function_name 100 200
+
+### Selection ###
+echo -n "Masukkan Angka: "
+read angka
+
+if [ $angka == 0 ]; then
+	echo "Angka adalah Angka Nol"
+elif [ $((angka%2)) == 0 ]; then
+	echo "Ini Angka Genap"
+else
+	echo "Ini Angka Ganjil"
+fi
+
+### Read File ###
+devicelists=$(</home/juragandevnet/Desktop/device_lists.txt)
+
+### Write File ###
+for device in $device_lists; 
+do
+ echo $device >> /home/juragandevnet/Desktop/logs.txt
+done
+
+### For Loop ###
+device_lists=$(<devicelists.txt)
+for device in $device_lists; do
+ echo $device
+done
+
+
+
+
+
+
+
 
 
