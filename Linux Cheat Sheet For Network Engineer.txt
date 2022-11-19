@@ -199,7 +199,7 @@ BASH SCRIPTING
 #!/bin/bash
 
 ### Variable ###
-$hostname = "IDJKTWR01"
+hostname="IDJKTWR01"
 
 ### Output ###		
 echo "Testing Menjalankan Print Out di Bash Scripting"
