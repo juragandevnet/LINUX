@@ -13,6 +13,6 @@ MAILTO=root
 # |  |  |  |  |
 # *  *  *  *  * user-name  command to be executed
 
-0 0 * * 0 /home/juragandevnet/Desktop/collectbackup.sh
+0 0 * * 0 /root/collectbackup.sh
 
 
