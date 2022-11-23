@@ -1,4 +1,4 @@
 #### WE ARE TALKING ABOUT LINUX ###
 
 - Linux Cheat Sheet for Network Engineer
-- SSH to devices with Bash Script
+- Scheduler Backup configs with bash scripting and cronjob
